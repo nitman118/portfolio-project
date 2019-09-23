@@ -12,6 +12,24 @@ class Blog(models.Model):
     pub_date = models.DateTimeField()
     body = models.TextField()
 
+    def summary(self):
+        '''
+        returns summary of a blog
+        '''
+        return self.body[:100]+"..."
+
+    def pub_date_pretty(self):
+        '''
+        Customization of date as per a specified format
+        '''
+        return self.pub_date.strftime('%b %e %Y')
+
+    def __str__(self):
+        '''
+        string repr of objects
+        '''
+        return self.title
+
 
 
 # create a blog model
